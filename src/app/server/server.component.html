@@ -1,1 +1,5 @@
-<p>The Server Component</p>
+<!-- 키는(클래스명,스타일명)작은 따옴표로 묶을수도 있고 스크립트 형식 카멜로도 쓸 수 있다 -->
+<p
+  [ngStyle]="{'background-color': getColor()}"
+  [ngClass]="{online: serverStatus === 'online'}">
+  Sever with ID {{ serverId }} is {{ getServerStatus() }}</p>

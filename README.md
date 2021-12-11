@@ -18,3 +18,7 @@
     - 복잡한 웹페이지를 재사용 가능
   - CLI 를 통한 Component 생성(app 밑에 servers 라는 Component 생성 및 app.module.ts에 자동 적용, css, html, ts, spec.ts)
     - ng generate component servers, ng g c servers
+  - Style
+  - Selector
+  - Module
+  - Data Binding
