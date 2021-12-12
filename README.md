@@ -1,11 +1,15 @@
-# Angular App Project
+# Angular App Study
 - Angular Cli
   - npm install -g @angular/cli@latest
   - ng new angular-app --no-strict
   - cd angular-app
   - ng serve
+  - ng generate component {name}, ng g c {name} ( 컴포넌트 팩으로 생성 )
+  - ng g c {name} --skip-tests ( 테스트 파일 생성 X 옵션 )
 - Library
   - npm install --save bootstrap@3
+    - angular.json -> styles: ["node_modules/bootstrap/dist/css/bootstrap.min.css"] 추가
+      - version 6 이상은 위처럼 (angular.json), 이하는 ../ 상대경로 줄 것 (angular-cli.json)
 ---
 ## Angular 설명  
 - EntryPoint
@@ -22,3 +26,7 @@
   - Selector
   - Module
   - Data Binding
+  - Directive
+  - Component 분할
+  - Custom Data Binding, Custom Event Binding Emit
+  - @Input(), @Output()

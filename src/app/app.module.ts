@@ -7,6 +7,8 @@ import { ServersComponent } from './servers/servers.component';
 import { SuccessAlertComponent } from './success-alert/success-alert.component';
 import { WarningAlertComponent } from "./warning-alert/warning-alert.component"; // 확장자는 웹팩에서 자동 추가
 import { FormsModule } from "@angular/forms";
+import { CockpitComponent } from './cockpit/cockpit.component';
+import { ServerElementComponent } from './server-element/server-element.component';
 
 @NgModule({
   declarations: [ // Angular 에게 Component 등록한다.(알려준다), 선언
@@ -14,7 +16,9 @@ import { FormsModule } from "@angular/forms";
     ServerComponent,
     ServersComponent,
     SuccessAlertComponent,
-    WarningAlertComponent
+    WarningAlertComponent,
+    CockpitComponent,
+    ServerElementComponent
   ],
   imports: [ // 모듈을 추가한다.
     BrowserModule,
