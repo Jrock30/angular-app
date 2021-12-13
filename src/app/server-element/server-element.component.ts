@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
   templateUrl: './server-element.component.html',
-  styleUrls: ['./server-element.component.css']
+  styleUrls: ['./server-element.component.css'],
+  encapsulation: ViewEncapsulation.Emulated // 속성을 주지 않으면 기본으로 Emulated 이고(해당 컴포넌트.css 에만 적용이 된다), None 으로 주면 속성 엘리먼트가 추가 되지 않는다. (뷰 캡슬화를 사용하지 않는다.) 이렇게 되면 해당 컴포넌트.css 파일이 전역으로 적용이된다(css 를 덮어씀).
 })
 export class ServerElementComponent implements OnInit {
   /**

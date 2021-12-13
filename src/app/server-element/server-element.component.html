@@ -2,9 +2,20 @@
   class="panel panel-default">
   <div class="panel-heading">{{ element.name }}</div>
   <div class="panel-body">
-    <p>
-      <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-      <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-    </p>
+<!--    <p>-->
+<!--      <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>-->
+<!--      <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>-->
+<!--    </p>-->
+
+    <!-- <ng-content></ng-content>
+         컴포넌트에 배치할 수 있는 후크 역할을 한다.
+         즉 이 컴포넌트를 사용하는 app.component.html 에서
+         <server-element>여기에 무엇을 넣으면 기본으로 사라짐</server-element>>
+         사라지는 곳에 자연스럽게 입력을 하고 싶으면 <ng-content></ng-content> 를 아래 처럼 넣으면 된다.
+
+         참고 - 속성 바인딩은 최상의 솔루션이 아니다.
+         <ng-content></ng-content> 이처럼 사용하면 XSS 공격도 예방할 수 있고 (HTML 태그를 이스케이프 함)
+     -->
+    <ng-content></ng-content>
   </div>
 </div>

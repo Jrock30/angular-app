@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -13,8 +13,15 @@ export class CockpitComponent implements OnInit {
    */
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>()
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>()
-  newServerName = ''
-  newServerContent = ''
+  // newServerName = ''
+  // newServerContent = ''
+  /**
+   * 로컬참조
+   * 로컬 참조를 ViewChild 를 통해 가져올 수 있다. 인수 필수 (element 그 자체 이다.)
+   * .html 에서의 #serverContentInput 를 직접 가져온 것 이다.
+   * 사용 - this.serverContentInput.nativeElement.value
+   */
+  @ViewChild('serverContentInput') serverContentInput: ElementRef
 
   constructor() {
   }
@@ -22,17 +29,25 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddServer() {
+  onAddServer(nameInput: HTMLInputElement) {
     // emit 이벤트 실행
     this.serverCreated.emit({
-      serverName: this.newServerName, serverContent: this.newServerContent
+      // serverName: this.newServerName,
+      // serverContent: this.newServerContent
+      serverName: nameInput.value, // 로컬 참조
+      serverContent: this.serverContentInput.nativeElement.value
     })
+
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(nameInput: HTMLInputElement) {
+    // this.serverContentInput.nativeElement.value = 'TEST' // 이런식으로 작성하지 말자. 이렇게 쓸바에는 양방향 바인딩 쓰자.
     // emit 이벤트 실행
     this.blueprintCreated.emit({
-      serverName: this.newServerName, serverContent: this.newServerContent
+      // serverName: this.newServerName,
+      // serverContent: this.newServerContent
+      serverName: nameInput.value, // 로컬 참조
+      serverContent: this.serverContentInput.nativeElement.value
     })
   }
 }
