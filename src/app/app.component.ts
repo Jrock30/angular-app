@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent { // 일반적인 Component 이기도 하지만 root Component 이기 때문에 특별하다.
   serverElements = [{type: 'server', name: 'TestServer', content: 'Just a test!'}];
+  // numbers = [1, 2, 3, 4, 5]
+  oddNumbers = [1, 3, 5]
+  evenNumbers = [2, 4]
+  onlyOdd = false
+  value = 10
 
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({

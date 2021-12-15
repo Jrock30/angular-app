@@ -5,6 +5,7 @@
   - cd angular-app
   - ng serve
   - ng generate component {name}, ng g c {name} ( 컴포넌트 팩으로 생성 )
+  - ng generate directive {name}, ng g d {name} ( Directive 팩으로 생성 )
   - ng g c {name} --skip-tests ( 테스트 파일 생성 X 옵션 )
 - Library
   - npm install --save bootstrap@3
@@ -30,3 +31,5 @@
   - Component 분할
   - Custom Data Binding, Custom Event Binding Emit
   - @Input(), @Output()
+  - @HostListener(리스너 바인딩 렌더러), @HostBinding(좀더 쉽게 바인딩, 이거 사용)
+  - @Input() set -> 커스텀 구조적 디렉티브 사용

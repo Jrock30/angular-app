@@ -43,4 +43,81 @@
       </app-server-element>
     </div>
   </div>
+
+  <!-- Directive 심화 -->
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: odd % 2 !== 0}"
+            [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'blue   '}"
+            *ngFor="let odd of oddNumbers"
+          >
+            {{ odd }}
+          </li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: even % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'blue'}"
+            *ngFor="let even of evenNumbers"
+          >
+            {{ even }}
+          </li>
+        </div>
+        <!--
+          ng-template 를 사용하면 똑같이 사용 가능, 이게 엘리먼트이기 때문에, * 를 사용하지 않아도 된다. ex [ngIf]
+          더 직관적인 것 같긴한데 선택해서 사용하자.
+        -->
+<!--        <ng-template [ngIf]="!onlyOdd">-->
+<!--          <div>-->
+<!--            <li-->
+<!--              class="list-group-item"-->
+<!--              [ngClass]="{odd: even % 2 !== 0}"-->
+<!--              [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'blue'}"-->
+<!--              *ngFor="let even of evenNumbers"-->
+<!--            >-->
+<!--              {{ even }}-->
+<!--            </li>-->
+<!--          </div>-->
+<!--        </ng-template>-->
+        <!--
+          ** 커스텀 구조적 디렉티브
+          위에 ng-template 을 사용하지 않고 unless 디렉티브를 통해 *ngIf, [ngIf] 도 아닌 커스텀 디렉티브 *appUnless 를 사용.
+          *appUnless 역시 구조적 디렉티브 이다.(커스텀 디렉티브), 즉 *ngIf 같은 것을 만든다고 보면 된다. set 명령어 사용
+          unless.directive.ts 참고
+        -->
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: even % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'blue'}"
+            *ngFor="let even of evenNumbers"
+          >
+            {{ even }}
+          </li>
+        </div>
+      </ul>
+      <!-- 외부 파일 디렉티브 적용 (대괄호 사용하지 않고 셀럭터 이기 때문에 셀럭터명만 사용-->
+      <p appBasicHighlight>Style me with basic directive !</p>
+<!--      <p appBetterHighlight>Style me with a better directive !</p>-->
+      <!-- 커스텀 바인딩 및 디렉티브 설정, 문자열을 전달한다면 대괄호를 빼고 값에 싱글퀘테이션도 빼면 된다 highlightColor 처럼 -->
+      <p appBetterHighlight [defaultColor]="'yellow'" highlightColor="red">Style me with a better directive !</p>
+      <!-- ngSwitch -->
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
+    </div>
+  </div>
+
 </div>

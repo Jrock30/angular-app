@@ -9,6 +9,9 @@ import { WarningAlertComponent } from "./warning-alert/warning-alert.component";
 import { FormsModule } from "@angular/forms";
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
+import {BasicHighlightDirective} from "./basic-highlight/basic-highlight.directive";
+import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
+import { UnlessDirective } from './unless.directive';
 
 @NgModule({
   declarations: [ // Angular 에게 Component 등록한다.(알려준다), 선언
@@ -18,7 +21,10 @@ import { ServerElementComponent } from './server-element/server-element.componen
     SuccessAlertComponent,
     WarningAlertComponent,
     CockpitComponent,
-    ServerElementComponent
+    ServerElementComponent,
+    BasicHighlightDirective,
+    BetterHighlightDirective,
+    UnlessDirective
   ],
   imports: [ // 모듈을 추가한다.
     BrowserModule,
