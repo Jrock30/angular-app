@@ -8,7 +8,7 @@ export class BetterHighlightDirective implements OnInit {
   @Input() highlightColor: string = 'blue'
   @HostBinding('style.backgroundColor') backgroundColor: string // 커스텀 바인딩 사용
   // @HostBinding('style.backgroundColor') backgroundColor: string = 'transparent'// - (dash) 를 입력하면 안된다고 함. 카멜 사용, 렌더러 보다 더 편하게 사용 가능
-  @HostBinding('style.padding') padding: string = '20px'
+  // @HostBinding('style.padding') padding: string = '20px'
 
   constructor(private elRef: ElementRef, private renderer: Renderer2) { }
 
@@ -38,13 +38,13 @@ export class BetterHighlightDirective implements OnInit {
     // this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'blue')
     // this.backgroundColor = 'blue'
     this.backgroundColor = this.highlightColor
-    this.padding = '50px'
+    // this.padding = '50px'
   }
 
   @HostListener('mouseleave') mouseleave(eventData: Event) {
     // this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'transparent')
     // this.backgroundColor = 'transparent'
     this.backgroundColor = this.defaultColor
-    this.padding = '20px'
+    // this.padding = '20px'
   }
 }

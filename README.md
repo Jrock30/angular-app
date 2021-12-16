@@ -17,6 +17,8 @@
   - main.ts -> app.module.ts -> app.component.ts
   - 다 어노테이션으로 셋팅한다.
   - index.html 에서는 CLI 가 각종 스크립트를 import 한다
+
+
 - Components
   - Angular 의 핵심이다.
   - 각 컴포넌트에는 고유한 템플릿이 있고, 고유한 HTML 코드, 고유한 스타일, 자체 비즈니스로직이 있다.
@@ -29,7 +31,13 @@
   - Data Binding
   - Directive
   - Component 분할
+  - LifeCycle
   - Custom Data Binding, Custom Event Binding Emit
   - @Input(), @Output()
   - @HostListener(리스너 바인딩 렌더러), @HostBinding(좀더 쉽게 바인딩, 이거 사용)
   - @Input() set -> 커스텀 구조적 디렉티브 사용
+
+
+- Service 
+  - DI (Dependency Injection)
+  - Instance Share

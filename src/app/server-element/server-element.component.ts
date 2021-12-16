@@ -29,43 +29,43 @@ export class ServerElementComponent implements
   @ContentChild('contentParagraph',{static:true}) paragraph: ElementRef
 
   constructor() {
-    console.log('constructor called!')
+    // console.log('constructor called!')
   }
 
   ngOnChanges(changes: SimpleChanges) { // 값이 변경되면 실행되는 훅
-    console.log('ngOnChanges called!')
-    console.log(changes)
+    // console.log('ngOnChanges called!')
+    // console.log(changes)
   }
 
   ngOnInit(): void { // 초기화 되고 실행되는 훅
-    console.log('ngOnInit called!')
+    // console.log('ngOnInit called!')
     /**
      * 이 떄는 참조가 되지 않음 @ViewChild, @ContentChild
      * DOM 이 아직 완전히 렌더링 되지 않았기 떄문에 일부 엘리먼트의 값을 확인 할 수 없다.
      */
-    console.log('@ViewChild >>> ', this.header.nativeElement.textContent)
-    console.log('@ContentChild >>> ', this.paragraph.nativeElement.textContent)
+    // console.log('@ViewChild >>> ', this.header.nativeElement.textContent)
+    // console.log('@ContentChild >>> ', this.paragraph.nativeElement.textContent)
   }
 
   ngDoCheck() { // 변경 사항을 확인할 때마다 호출
-    console.log('ngDoCheck called!')
+    // console.log('ngDoCheck called!')
   }
 
   ngAfterContentInit() { // content 초기화 실행, ex) <ng-content></ng-content> 영역
-    console.log("ngAfterContentInit called!")
+    // console.log("ngAfterContentInit called!")
     /**
      * 이 떄는 참조가 됨 @ContentChild
      * DOM 이 렌더링 되었기 때문에 엘리먼트의 값을 확인할 수 있다.
      */
-    console.log('@ContentChild >>> ', this.paragraph.nativeElement.textContent)
+    // console.log('@ContentChild >>> ', this.paragraph.nativeElement.textContent)
   }
 
   ngAfterContentChecked() { // content 감지
-    console.log("ngAfterContentChecked called!")
+    // console.log("ngAfterContentChecked called!")
   }
 
   ngAfterViewInit() { //
-    console.log("ngAfterViewInit called!")
+    // console.log("ngAfterViewInit called!")
     /**
      * 이 떄는 참조가 됨 @ViewChild
      * DOM 이 렌더링 되었기 때문에 엘리먼트의 값을 확인할 수 있다.
@@ -74,11 +74,11 @@ export class ServerElementComponent implements
   }
 
   ngAfterViewChecked() { //
-    console.log("ngAfterViewChecked called!")
+    // console.log("ngAfterViewChecked called!")
   }
 
   ngOnDestroy() { // 컴포넌트가 파괴(제거) 되면 실행
-    console.log("ngOnDestroy called!")
+    // console.log("ngOnDestroy called!")
   }
 
 }

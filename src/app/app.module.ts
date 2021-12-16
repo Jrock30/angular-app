@@ -12,6 +12,10 @@ import { ServerElementComponent } from './server-element/server-element.componen
 import {BasicHighlightDirective} from "./basic-highlight/basic-highlight.directive";
 import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
 import { UnlessDirective } from './unless.directive';
+import {AccountComponent} from "./account/account.component";
+import {NewAccountComponent} from "./new-account/new-account.component";
+import {AccountsService} from "./accounts.service";
+import {LoggingService} from "./logging/logging.service";
 
 @NgModule({
   declarations: [ // Angular 에게 Component 등록한다.(알려준다), 선언
@@ -24,12 +28,19 @@ import { UnlessDirective } from './unless.directive';
     ServerElementComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    AccountComponent,
+    NewAccountComponent
   ],
   imports: [ // 모듈을 추가한다.
     BrowserModule,
     FormsModule
   ],
+  /**
+   *  providers 사용하지 않고
+   *  @Injectable({providedIn: 'root'}) 로 서비스에서 직접 사용
+   */
+  // providers: [AccountsService, LoggingService], // 최상위 설정, 여기에 설정하면 인스턴스를 공유한다. (해당 컴포넌트에서 재 설정하지 않는 이상)
   providers: [],
   bootstrap: [AppComponent] // Angular 가 실행 시점에 어떤 컴포넌트를 알아야 하는지 알려주는 역
 })
