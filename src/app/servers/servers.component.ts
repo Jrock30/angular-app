@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ServersService} from "./servers.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   // selector: '[app-servers]', // 속성별로 엘리먼트를 선택할 수 있다.(배열로 사용하려면 사용하는 곳에서 직접 <app-servers> 형식으로 사용하는 것이 아니고 <div app-servers> 이런식으로 사용해야함(커스텀 속성 추가)
@@ -18,7 +19,10 @@ export class ServersComponent implements OnInit {
   servers = ['server', 'server2']
   public servers2: {id: number, name: string, status: string}[] = [];
 
-  constructor(private serversService: ServersService) {
+  constructor(private serversService: ServersService,
+              private router: Router,
+              private route: ActivatedRoute // 활성화된 경로 등을 알려준다. (메타데이터 등)
+  ) {
     setTimeout(() => {
       this.allowNewServer = true
     },2000)
@@ -36,5 +40,10 @@ export class ServersComponent implements OnInit {
 
   onUpdateServerName(event: any) {
     this.serverName = (<HTMLInputElement>event.target).value // event.target 으로만 해도 되고 이 처럼 명시적 캐스팅 해도 됨.
+  }
+
+  onReload() {
+    /* routerLink 와 달리 navigate 는 현재 경로를 알지 못한다. 그래서 두번째 파람에 활성화 된 라우터를 알 수 있는 ActivatedRoute 를 넣어준다.*/
+    // this.router.navigate(['servers'], {relativeTo: this.route}) // /현재경로/servers
   }
 }

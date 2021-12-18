@@ -22,6 +22,24 @@ import {ServersService} from "./servers/servers.service";
 import {Server2Component} from "./servers/server/server2.component";
 import {HomeComponent} from "./home/home.component";
 import {UsersComponent} from "./users/users.component";
+import {RouterModule, Routes} from "@angular/router";
+
+const appRoutes: Routes = [ // 라우트 설정
+  { path: '', component: HomeComponent },
+  { path: 'users', component: UsersComponent,
+    children: [
+      { path: ':id/:name', component: UserComponent }, // 파람 값 넣음
+    ]
+  },
+  { path: 'servers', component: ServersComponent,
+    children: [ // 자식 라우터(중첩 라우터)
+      { path: ':id', component: Server2Component },
+      { path: ':id/edit', component: EditServerComponent },
+    ]
+  },
+
+
+];
 
 @NgModule({
   declarations: [ // Angular 에게 Component 등록한다.(알려준다), 선언
@@ -45,7 +63,8 @@ import {UsersComponent} from "./users/users.component";
   ],
   imports: [ // 모듈을 추가한다.
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes) // 라우트 등록
   ],
   /**
    *  providers 사용하지 않고
