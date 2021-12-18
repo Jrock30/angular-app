@@ -23,3 +23,23 @@
 <!--</ng-template>-->
 <p *ngIf="serverCreated">Server was created, {{serverName}}</p><!-- * -> 구조적인 디렉티브를 나타낸다 -->
 <app-server *ngFor="let server of servers; let i = index"></app-server>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      <a
+        href="#"
+        class="list-group-item"
+        *ngFor="let server of servers2">
+        {{ server.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <app-edit-server></app-edit-server>
+    <hr>
+    <app-server></app-server>
+  </div>
+</div>
+
+

@@ -14,18 +14,18 @@ import { Component } from "@angular/core"; // Angular 핵심 기능
 })
 export class ServerComponent {
 
-  serverId: number = 10
-  serverStatus: string = 'offline'
+  serverId: number = 10;
+  serverStatus: string = 'offline';
 
   constructor() {
-    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline'
+    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
   }
 
   getServerStatus() {
-    return this.serverStatus
+    return this.serverStatus;
   }
 
   getColor() {
-    return this.serverStatus === 'online' ? 'green' : 'red'
+    return this.serverStatus === 'online' ? 'green' : 'red';
   }
 }

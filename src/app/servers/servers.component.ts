@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServersService} from "./servers.service";
 
 @Component({
   // selector: '[app-servers]', // 속성별로 엘리먼트를 선택할 수 있다.(배열로 사용하려면 사용하는 곳에서 직접 <app-servers> 형식으로 사용하는 것이 아니고 <div app-servers> 이런식으로 사용해야함(커스텀 속성 추가)
@@ -15,14 +16,16 @@ export class ServersComponent implements OnInit {
   serverName = 'TestServer'
   serverCreated = false
   servers = ['server', 'server2']
+  public servers2: {id: number, name: string, status: string}[] = [];
 
-  constructor() {
+  constructor(private serversService: ServersService) {
     setTimeout(() => {
       this.allowNewServer = true
     },2000)
   }
 
   ngOnInit(): void {
+    this.servers2 = this.serversService.getServers();
   }
 
   onCreateServer() {

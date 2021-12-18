@@ -16,6 +16,12 @@ import {AccountComponent} from "./account/account.component";
 import {NewAccountComponent} from "./new-account/new-account.component";
 import {AccountsService} from "./accounts.service";
 import {LoggingService} from "./logging/logging.service";
+import {UserComponent} from "./users/user/user.component";
+import {EditServerComponent} from "./servers/edit-server/edit-server.component";
+import {ServersService} from "./servers/servers.service";
+import {Server2Component} from "./servers/server/server2.component";
+import {HomeComponent} from "./home/home.component";
+import {UsersComponent} from "./users/users.component";
 
 @NgModule({
   declarations: [ // Angular 에게 Component 등록한다.(알려준다), 선언
@@ -30,7 +36,12 @@ import {LoggingService} from "./logging/logging.service";
     BetterHighlightDirective,
     UnlessDirective,
     AccountComponent,
-    NewAccountComponent
+    NewAccountComponent,
+    HomeComponent,
+    UsersComponent,
+    UserComponent,
+    EditServerComponent,
+    Server2Component
   ],
   imports: [ // 모듈을 추가한다.
     BrowserModule,
@@ -41,7 +52,7 @@ import {LoggingService} from "./logging/logging.service";
    *  @Injectable({providedIn: 'root'}) 로 서비스에서 직접 사용
    */
   // providers: [AccountsService, LoggingService], // 최상위 설정, 여기에 설정하면 인스턴스를 공유한다. (해당 컴포넌트에서 재 설정하지 않는 이상)
-  providers: [],
+  providers: [ServersService],
   bootstrap: [AppComponent] // Angular 가 실행 시점에 어떤 컴포넌트를 알아야 하는지 알려주는 역
 })
 export class AppModule { }
