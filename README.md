@@ -44,3 +44,10 @@
 
 - Router
   - router module
+    - router setting 
+    - param, queryString, 
+    - router-link, router-outlet
+    - redirection
+    - navigate
+    - subscribe
+
