@@ -42,6 +42,7 @@
   - DI (Dependency Injection)
   - Instance Share
 
+
 - Router
   - router module
     - router setting 
@@ -50,4 +51,15 @@
     - redirection
     - navigate
     - subscribe
+    - ActivatedRoute
+    - Router
+    - Route
 
+
+- Router Guard
+  - CanActivate
+  - CanActivateChild
+  - CanDeactivate
+  - Resolver
+
+  

@@ -24,6 +24,11 @@ import {HomeComponent} from "./home/home.component";
 import {UsersComponent} from "./users/users.component";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
+import {AuthService} from "./auth.service";
+import {AuthGuard} from "./auth-guard.service";
+import {CanDeactivateGuard} from "./servers/edit-server/can-deactive-guard.service";
+import { ErrorPageComponent } from './error-page/error-page.component';
+import {ServerResolver} from "./servers/server/server-resolver.service";
 
 @NgModule({
   declarations: [ // Angular 에게 Component 등록한다.(알려준다), 선언
@@ -44,7 +49,8 @@ import {AppRoutingModule} from "./app-routing.module";
     UserComponent,
     EditServerComponent,
     Server2Component,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [ // 모듈을 추가한다.
     BrowserModule,
@@ -56,7 +62,7 @@ import {AppRoutingModule} from "./app-routing.module";
    *  @Injectable({providedIn: 'root'}) 로 서비스에서 직접 사용
    */
   // providers: [AccountsService, LoggingService], // 최상위 설정, 여기에 설정하면 인스턴스를 공유한다. (해당 컴포넌트에서 재 설정하지 않는 이상)
-  providers: [ServersService],
+  providers: [ServersService, AuthService, AuthGuard, CanDeactivateGuard, ServerResolver],
   bootstrap: [AppComponent] // Angular 가 실행 시점에 어떤 컴포넌트를 알아야 하는지 알려주는 역
 })
 export class AppModule { }
