@@ -11,6 +11,8 @@ import {AuthGuard} from "./auth-guard.service";
 import {CanDeactivateGuard} from "./servers/edit-server/can-deactive-guard.service";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {ServerResolver} from "./servers/server/server-resolver.service";
+import {Home2Component} from "./home2/home2.component";
+import {User2Component} from "./user2/user2.component";
 
 const appRoutes: Routes = [ // 라우트 설정
   { path: '', component: HomeComponent },
@@ -34,6 +36,8 @@ const appRoutes: Routes = [ // 라우트 설정
   // { path: 'not-found', component: PageNotFoundComponent },
   // PageNotFoundComponent 처럼 정적아 아니고 동적으로 데이터도 바꾸고 에러 페이지를 출력할 수 있도록. / 재사용을 위한
   { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
+  {path: 'home', component: Home2Component},
+  {path: 'user2/:id', component: User2Component},
   { path: '**', redirectTo: '/not-found' }, // 와일드카드 경로 리다이렉션, 마지막 경로에 추가할 것 순서되로 실행 됨.
 ];
 

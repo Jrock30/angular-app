@@ -29,6 +29,8 @@ import {AuthGuard} from "./auth-guard.service";
 import {CanDeactivateGuard} from "./servers/edit-server/can-deactive-guard.service";
 import { ErrorPageComponent } from './error-page/error-page.component';
 import {ServerResolver} from "./servers/server/server-resolver.service";
+import {Home2Component} from "./home2/home2.component";
+import {User2Component} from "./user2/user2.component";
 
 @NgModule({
   declarations: [ // Angular 에게 Component 등록한다.(알려준다), 선언
@@ -50,7 +52,9 @@ import {ServerResolver} from "./servers/server/server-resolver.service";
     EditServerComponent,
     Server2Component,
     PageNotFoundComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    Home2Component,
+    User2Component
   ],
   imports: [ // 모듈을 추가한다.
     BrowserModule,
